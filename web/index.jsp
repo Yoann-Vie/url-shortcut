@@ -4,7 +4,7 @@
 
 <t:layout>
   <jsp:body>
-      <form action="">
+      <form action="" method="post">
           <label for="base-url">Saisir l'url longue</label>
           <input type="text" id="base-url" name="base-url">
       </form>
