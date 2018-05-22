@@ -40,9 +40,8 @@ public class Home extends HttpServlet {
 
         try {
             Url urlItem = new Url();
-            urlItem.setBaseUrl(url);
+            urlItem.setBaseUrl(url).shortUrl().persist();
             // TODO : manage url shortcut method
-            urlItem.persist();
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println(e.getMessage());

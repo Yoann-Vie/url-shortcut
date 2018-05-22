@@ -18,6 +18,13 @@ public class Url extends ModelAbstract
         return new ArrayList<String>(Arrays.asList("'" + this.baseUrl + "'", "'" + this.shortcutUrl + "'", "'" + this.password + "'"));
     }
 
+    public Url shortUrl() {
+        // TODO call helper method to get shorted url
+        this.shortcutUrl = "tmp-shorted";
+
+        return this;
+    }
+
     public Url setId(Integer id) {
         this.id = id;
 
