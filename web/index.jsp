@@ -5,8 +5,11 @@
 <t:layout>
   <jsp:body>
       <form action="" method="post">
-          <label for="base-url">Saisir l'url longue</label>
-          <input type="text" id="base-url" name="base-url">
+          <div class="form-group">
+              <label for="base-url">Saisir l'url longue</label>
+              <input type="text" class="form-control" id="base-url" name="base-url" placeholder="Url">
+          </div>
+          <button type="submit" class="btn btn-primary">Envoyer</button>
       </form>
   </jsp:body>
 </t:layout>
