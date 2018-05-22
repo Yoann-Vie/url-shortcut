@@ -19,8 +19,7 @@ public class Url extends ModelAbstract
     }
 
     public Url shortUrl() {
-        // TODO call helper method to get shorted url
-        this.shortcutUrl = "tmp-shorted";
+        this.shortcutUrl = Helper.Url.shortUrl();
 
         return this;
     }
