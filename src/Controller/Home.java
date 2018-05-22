@@ -1,5 +1,7 @@
 package Controller;
 
+import Model.Url;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,5 +37,15 @@ public class Home extends HttpServlet {
             throws ServletException, IOException
     {
         String url = request.getParameter("base-url");
+
+        try {
+            Url urlItem = new Url();
+            urlItem.setBaseUrl(url);
+            // TODO : manage url shortcut method
+            urlItem.persist();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
     }
 }
