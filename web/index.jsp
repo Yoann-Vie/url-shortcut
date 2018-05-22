@@ -5,6 +5,9 @@
     <title></title>
   </head>
   <body>
-    <p>Hello World !</p>
+    <form action="">
+      <label for="base-url">Saisir l'url longue</label>
+      <input type="text" id="base-url" name="base-url">
+    </form>
   </body>
 </html>
