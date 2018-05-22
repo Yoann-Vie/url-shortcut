@@ -1,5 +1,7 @@
 package Model;
 
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -51,5 +53,13 @@ public class Url extends ModelAbstract
     public String getBaseUrl() {
         return this.baseUrl;
     }
-    public String getShortcutUrl() { return this.shortcutUrl; }
+
+    public String getShortcutUrl()
+            throws NamingException
+    {
+        InitialContext ic = new InitialContext();
+        String baseDomain = (String) ic.lookup("java:comp/env/app/domain");
+
+        return baseDomain + this.shortcutUrl;
+    }
 }

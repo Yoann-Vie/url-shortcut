@@ -4,6 +4,6 @@
 
 <t:layout>
   <jsp:body>
-        <p>Voici votre url raccourcie : <c:out value="${url.getShortcutUrl()}"/></p>
+        <p>Voici votre url raccourcie : <a href="<c:out value="${url.getShortcutUrl()}"/>"><c:out value="${url.getShortcutUrl()}"/></a></p>
   </jsp:body>
 </t:layout>
