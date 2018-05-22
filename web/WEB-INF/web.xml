@@ -5,4 +5,19 @@
 		  http://java.sun.com/xml/ns/javaee/web-app_4_0.xsd"
            version="4.0">
 
+    <env-entry>
+        <env-entry-name>db/serverName</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>localhost</env-entry-value>
+    </env-entry>
+    <env-entry>
+        <env-entry-name>db/database</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>esgi_jee_learning</env-entry-value>
+    </env-entry>
+    <env-entry>
+        <env-entry-name>db/username</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>root</env-entry-value>
+    </env-entry>
 </web-app>
