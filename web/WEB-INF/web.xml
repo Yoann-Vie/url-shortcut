@@ -13,7 +13,7 @@
     <env-entry>
         <env-entry-name>db/database</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>esgi_jee_learning</env-entry-value>
+        <env-entry-value>jee_breizhlink</env-entry-value>
     </env-entry>
     <env-entry>
         <env-entry-name>db/username</env-entry-name>
