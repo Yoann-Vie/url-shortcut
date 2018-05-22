@@ -42,9 +42,14 @@ public class Home extends HttpServlet {
             Url urlItem = new Url();
             urlItem.setBaseUrl(url).shortUrl().persist();
             // TODO : manage url shortcut method
+
+            HttpSession session = request.getSession();
+            session.setAttribute("url", urlItem);
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println(e.getMessage());
         }
+
+        this.getServletContext().getRequestDispatcher( "/success.jsp" ).forward(request, response);
     }
 }
