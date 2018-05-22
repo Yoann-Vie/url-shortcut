@@ -7,9 +7,9 @@
       <form action="" method="post">
           <div class="form-group">
               <label for="base-url">Saisir l'url longue</label>
-              <input type="text" class="form-control" id="base-url" name="base-url" placeholder="Base url">
+              <input type="text" class="form-control" id="base-url" name="base-url" placeholder="Url">
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">Envoyer</button>
       </form>
   </jsp:body>
 </t:layout>
