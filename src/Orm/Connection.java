@@ -20,7 +20,7 @@ public class Connection {
             String database = (String) ic.lookup("java:comp/env/db/database");
             String url = "jdbc:mysql://" + serverName + "/" + database;
             String username = (String) ic.lookup("java:comp/env/db/username");
-            String password = "";
+            String password = "root";
 
             return DriverManager.getConnection(url, username, password);
         } catch (SQLException e) {
