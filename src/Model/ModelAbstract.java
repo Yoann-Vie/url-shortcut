@@ -22,20 +22,18 @@ public abstract class ModelAbstract
     /**
      * Find model instance by Id
      * @param id Integer
-     * @return ModelAbstract
      */
-    public ModelAbstract find(Integer id)
+    public void find(Integer id)
     {
-        return this.find("id", id.toString());
+        this.find("id", id.toString());
     }
 
     /**
      * Find model instance using attribute condition
      * @param fieldName String
      * @param fieldValue String
-     * @return ModelAbstract
      */
-    public ModelAbstract find(String fieldName, String fieldValue)
+    public void find(String fieldName, String fieldValue)
     {
         HashMap condition = new HashMap();
         condition.put(fieldName, fieldValue);
@@ -49,8 +47,6 @@ public abstract class ModelAbstract
         } catch (Exception exception) {
             System.out.println(exception.getMessage());
         }
-
-        return this;
     }
 
     /**
@@ -73,10 +69,16 @@ public abstract class ModelAbstract
      * @throws NamingException
      */
     public void persist()
-        throws SQLException, ClassNotFoundException, NamingException
     {
-        new Query().insert(this.tableName, this.fields, this.getValues());
-        // TODO : manage update
+        try {
+            if (this.getId() > 0) {
+                new Query().update(this.getId(), this.tableName, this.fields, this.getValues());
+            } else {
+                new Query().insert(this.tableName, this.fields, this.getValues());
+            }
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
     }
 
     /**

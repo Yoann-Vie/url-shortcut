@@ -45,6 +45,33 @@ public class Query {
     }
 
     /**
+     * Update query method
+     * @param id Integer
+     * @param tableName String
+     * @param fields ArrayList<String>
+     * @param values ArrayList<String>
+     * @throws SQLException
+     */
+    public void update(Integer id, String tableName, ArrayList<String> fields, ArrayList<String> values)
+        throws SQLException
+    {
+        fields.remove(0);
+        String query = "UPDATE " + tableName + " SET ";
+        for (int i = 0; i < fields.size(); i++) {
+            if (i > 0) {
+                query = query + ", ";
+            }
+            query = query + fields.get(i) + "=" + values.get(i);
+        }
+        query = query + " WHERE id=?";
+
+        this.statement = this.connection.prepareStatement(query);
+        this.statement.setInt(1, id);
+        this.statement.executeUpdate();
+        this.statement.close();
+    }
+
+    /**
      * Delete query method
      * @param tableName String
      * @param id Integer
