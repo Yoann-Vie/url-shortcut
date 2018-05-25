@@ -12,12 +12,25 @@ public class Query {
     private java.sql.Connection connection;
     private java.sql.PreparedStatement statement;
 
+    /**
+     * Query constructor
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     * @throws NamingException
+     */
     public Query()
         throws SQLException, ClassNotFoundException, NamingException
     {
         this.connection = Connection.get();
     }
 
+    /**
+     * Insert query method
+     * @param tableName String
+     * @param fields ArrayList<String>
+     * @param values ArrayList<String>
+     * @throws SQLException
+     */
     public void insert(String tableName, ArrayList<String> fields, ArrayList<String> values)
         throws SQLException
     {
@@ -31,6 +44,12 @@ public class Query {
         this.statement.close();
     }
 
+    /**
+     * Delete query method
+     * @param tableName String
+     * @param id Integer
+     * @throws SQLException
+     */
     public void delete(String tableName, Integer id)
         throws SQLException
     {
@@ -42,6 +61,13 @@ public class Query {
         this.statement.close();
     }
 
+    /**
+     * Select query method
+     * @param tableName String
+     * @param fields ArrayList<String>
+     * @return ArrayList
+     * @throws SQLException
+     */
     public ArrayList select(String tableName, ArrayList<String> fields)
        throws SQLException
     {
@@ -56,6 +82,14 @@ public class Query {
         return formattedResults;
     }
 
+    /**
+     * Select query method with where statement
+     * @param tableName String
+     * @param fields ArrayList<String>
+     * @param condition HashMap<String,String>
+     * @return ArrayList
+     * @throws SQLException
+     */
     public ArrayList selectWhere(String tableName, ArrayList<String> fields, HashMap<String,String> condition)
        throws SQLException
     {
@@ -83,6 +117,12 @@ public class Query {
         return formattedResults;
     }
 
+    /**
+     * Get request results as ArrayList Object
+     * @param results ResultSet
+     * @return ArrayList
+     * @throws SQLException
+     */
     private ArrayList getResult(ResultSet results)
         throws SQLException
     {
@@ -99,6 +139,10 @@ public class Query {
         return formattedResults;
     }
 
+    /**
+     * Close statement
+     * @throws SQLException
+     */
     public void close()
         throws SQLException
     {
