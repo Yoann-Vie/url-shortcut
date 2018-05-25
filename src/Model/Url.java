@@ -26,12 +26,6 @@ public class Url extends ModelAbstract
         return this;
     }
 
-    public Url setId(Integer id) {
-        this.id = id;
-
-        return this;
-    }
-
     public Url setBaseUrl(String url) {
         this.baseUrl = url;
 

@@ -76,7 +76,7 @@ public class Query {
 
         this.statement = this.connection.prepareStatement(query);
         ResultSet results = this.statement.executeQuery();
-        ArrayList formattedResults = this.getResult(results);
+        ArrayList formattedResults = this.getResult(results, fields);
         this.statement.close();
 
         return formattedResults;
@@ -111,7 +111,7 @@ public class Query {
             count++;
         }
         ResultSet results = this.statement.executeQuery();
-        ArrayList formattedResults = this.getResult(results);
+        ArrayList formattedResults = this.getResult(results, fields);
         this.statement.close();
 
         return formattedResults;
@@ -123,15 +123,15 @@ public class Query {
      * @return ArrayList
      * @throws SQLException
      */
-    private ArrayList getResult(ResultSet results)
+    private ArrayList getResult(ResultSet results, ArrayList<String> fields)
         throws SQLException
     {
         ArrayList formattedResults = new ArrayList();
         while(results.next()) {
             Map resultRow = new HashMap<>();
-            resultRow.put("id", results.getInt("id"));
-            resultRow.put("username", results.getString("username"));
-            resultRow.put("email", results.getString("email"));
+            for (String field : fields) {
+                resultRow.put(field, results.getString(field));
+            }
 
             formattedResults.add(resultRow);
         }

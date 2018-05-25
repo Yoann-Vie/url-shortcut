@@ -15,8 +15,8 @@ public class Home extends HttpServlet {
 
     /**
      * Home get action
-     * @param request
-     * @param response
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
      * @throws ServletException
      * @throws IOException
      */
@@ -28,8 +28,8 @@ public class Home extends HttpServlet {
 
     /**
      * Home post action
-     * @param request
-     * @param response
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
      * @throws ServletException
      * @throws IOException
      */
