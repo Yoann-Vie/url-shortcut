@@ -48,11 +48,17 @@ public class Url extends ModelAbstract
         return this.baseUrl;
     }
 
-    public String getShortcutUrl() throws NamingException
+    public String getShortcutUrl()
     {
-        InitialContext ic = new InitialContext();
-        String baseDomain = (String) ic.lookup("java:comp/env/app/domain");
+        String shortUrl = this.shortcutUrl;
+        try {
+            InitialContext ic = new InitialContext();
+            String baseDomain = (String) ic.lookup("java:comp/env/app/domain");
+            shortUrl = baseDomain + this.shortcutUrl;
+        } catch (NamingException exception) {
+            System.out.println(exception.getMessage());
+        }
 
-        return baseDomain + this.shortcutUrl;
+        return shortUrl;
     }
 }
