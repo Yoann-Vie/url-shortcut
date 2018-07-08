@@ -71,10 +71,10 @@ public abstract class ModelAbstract
     public void persist()
     {
         try {
-            if (this.getId() > 0) {
-                new Query().update(this.getId(), this.tableName, this.fields, this.getValues());
-            } else {
+            if (this.getId() == null) {
                 new Query().insert(this.tableName, this.fields, this.getValues());
+            } else {
+                new Query().update(this.getId(), this.tableName, this.fields, this.getValues());
             }
         } catch (Exception exception) {
             System.out.println(exception.getMessage());
